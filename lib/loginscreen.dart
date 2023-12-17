@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:prjctlog/homescreen.dart';
-import 'package:prjctlog/splashscreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -11,8 +11,8 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  TextEditingController _namectroler = TextEditingController();
-  TextEditingController _passwordctroler = TextEditingController();
+  final  _namectroler = TextEditingController();
+  final  _passwordctroler = TextEditingController();
   final _SINGUPkey = GlobalKey<FormState>();
 
   @override
@@ -45,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return 'not valid';
                     }
                     return null;
+                   
                   },
                   style: TextStyle(color: Colors.white),
                   decoration: InputDecoration(
@@ -67,6 +68,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       return 'not valid';
                     }
                     return null;
+                  
                   },
                   obscureText: true,
                   style: TextStyle(color: Colors.white),
@@ -85,10 +87,8 @@ class _LoginScreenState extends State<LoginScreen> {
                 ElevatedButton(
                     onPressed: () {
                       if (_SINGUPkey.currentState!.validate()) {
-                        print(_namectroler);
-                        print(_passwordctroler);
-
-                        checklogin(context);
+                      
+                        checkLogin(context);
                       } else {
                         print('data empty');
                       }
@@ -102,13 +102,12 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
-  void checklogin(BuildContext context) async {
+  void checkLogin( context) async {
     final _username = _namectroler.text;
     final _password = _passwordctroler.text;
 
     if (_username == 'shibil' && _password == 'asas') {
-    //   final _sharedfrs = await SharedPreferences.getInstance();
-    //  await _sharedfrs.setBool(SAVEKEY, true);
+   
 
       Navigator.of(context).pushReplacement(
           MaterialPageRoute(builder: ((context) => HomeScreen())));

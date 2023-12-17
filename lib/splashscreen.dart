@@ -1,30 +1,26 @@
 import 'package:flutter/material.dart';
-import 'package:prjctlog/homescreen.dart';
+
 import 'package:prjctlog/loginscreen.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
-const SAVEKEY = 'userlogddin';
 
-class splashScreen extends StatefulWidget {
-  const splashScreen({super.key});
+
+
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<splashScreen> createState() => _splashScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _splashScreenState extends State<splashScreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    gotologin();
-    // TODO: implement initState
+    GotoLogin();
+   
     super.initState();
   }
 
-  @override
-  void dispose() {
-    // TODO: implement dispose
-    super.dispose();
-  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -48,21 +44,12 @@ class _splashScreenState extends State<splashScreen> {
     );
   }
 
-  Future<void> gotologin() async {
+  Future<void> GotoLogin() async {
     await Future.delayed(Duration(seconds: 3));
 
     Navigator.of(context)
         .pushReplacement((MaterialPageRoute(builder: (ctx) => LoginScreen())));
   }
 
-  // Future<void> checklogged() async {
-  //   final _sharedpfr = await SharedPreferences.getInstance();
-  //   final _userlogged = _sharedpfr.getBool(SAVEKEY); //USRLOGGED LEEKK
-  //   if (_userlogged == null || _userlogged == false) {
-  //     gotologin();
-  //   } else {
-  //     Navigator.of(context)
-  //         .pushReplacement(MaterialPageRoute(builder: (ctx) => HomeScreen()));
-  //   }
-  // }
+ 
 }

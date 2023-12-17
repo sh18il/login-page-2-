@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:prjctlog/loginscreen.dart';
-// import 'package:shared_preferences/shared_preferences.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -23,7 +22,7 @@ class _HomeScreenState extends State<HomeScreen> {
     {'movie': 'NARAN', 'actor': 'mohanlaal'},
     {'movie': 'CID MOOSA', 'actor': 'dileep'},
     {'movie': 'MINNAL MURALI', 'actor': 'tovino'},
-     {'movie': 'BIg B', 'actor': 'mammutty'},
+    {'movie': 'BIg B', 'actor': 'mammutty'},
     {'movie': 'NARAN', 'actor': 'mohanlaal'},
     {'movie': 'CID MOOSA', 'actor': 'dileep'},
     {'movie': 'MINNAL MURALI', 'actor': 'tovino'},
@@ -61,7 +60,7 @@ class _HomeScreenState extends State<HomeScreen> {
       body: Container(
         child: ListView.builder(
           itemCount: movieList.length,
-          itemBuilder: (context, int index) {
+          itemBuilder: (context, index) {
             return ListTile(
               tileColor: Color.fromARGB(224, 26, 30, 23),
               title: Text(
@@ -83,13 +82,14 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           },
         ),
+        
       ),
+    
     );
   }
 
-  void singout(BuildContext context) async {
-    // final _sharedpfrs = await SharedPreferences.getInstance();
-    // await _sharedpfrs.clear();
+  void singout( context) async {
+   
 
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => LoginScreen()),
